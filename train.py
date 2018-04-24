@@ -84,7 +84,7 @@ def main():
     """These are the main training settings. Set each before running
     this file."""
     # model can be one of lstm, lrcn, mlp, conv_3d, c3d
-    model = 'twoStreams'
+    model = 'lrcn_new'
     saved_model = None  # None or weights file
     class_limit = 2  # int, can be 1-101 or None
     seq_length = 1
@@ -102,9 +102,11 @@ def main():
         seq_length = 10
     elif model == 'twoStreams':
         seq_length = 1
+    elif model == 'lrcn_new':
+        seq_length = 40
 
     # Chose images or features and image shape based on network.
-    if model in ['conv_3d', 'c3d', 'lrcn', 'singleFrame', 'lateFusion', 'earlyFusion', 'slowFusion', 'twoStreams']:
+    if model in ['conv_3d', 'c3d', 'lrcn', 'lrcn_new','singleFrame', 'lateFusion', 'earlyFusion', 'slowFusion', 'twoStreams']:
         data_type = 'images'
         image_shape = (80, 80, 3)
     elif model in ['lstm', 'mlp']:

@@ -251,7 +251,6 @@ class DataSet():
         filenames."""
         path = os.path.join('data', sample[0], sample[1])
         filename = sample[2]
-        x = os.path.join(path, filename + '*jpg')
         images = sorted(glob.glob(os.path.join(path, filename + '*jpg')))
         return images
 
